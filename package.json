@@ -1,5 +1,5 @@
 {
-  "name": "koishi-plugin-kunzai",
+  "name": "koishi-plugin-yunzai",
   "description": "a yunzai-plugin adapter for koishi",
   "version": "0.0.0-placeholder",
   "main": "lib/index.js",
@@ -10,6 +10,11 @@
   ],
   "license": "MIT",
   "scripts": {},
+  "koishi": {
+    "description": {
+      "zh": "YunzaiBot for koishi"
+    }
+  },
   "keywords": [
     "chatbot",
     "koishi",

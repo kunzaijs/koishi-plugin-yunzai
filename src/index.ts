@@ -1,13 +1,13 @@
 import { Context, Schema } from 'koishi'
 
-class Kunzai {
+class Yunzai {
   readonly name = 'kunzai'
-  constructor(private ctx: Context, config: Kunzai.Config) {
+  constructor(private ctx: Context, config: Yunzai.Config) {
 
   }
 }
 
-namespace Kunzai {
+namespace Yunzai {
   export interface Config { }
 
   export const Config: Schema<Config> = Schema.object({})
