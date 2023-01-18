@@ -1,8 +1,6 @@
-# koishi-plugin-kunzai
+# koishi-plugin-yunzai
 
-[![npm](https://img.shields.io/npm/v/koishi-plugin-kunzai?style=flat-square)](https://www.npmjs.com/package/koishi-plugin-kunzai) ![Rating](https://badge.koishi.chat/rating/koishi-plugin-kunzai)
-
-Kunzai 是几位小黑子发现 Koishi + Yunzai 可以组合成 Kunzai！于是就用了。
+[![npm](https://img.shields.io/npm/v/koishi-plugin-kunzai?style=flat-square)](https://www.npmjs.com/package/koishi-plugin-yunzai) ![Rating](https://badge.koishi.chat/rating/koishi-plugin-yunzai)
 
 ## 特点
 
