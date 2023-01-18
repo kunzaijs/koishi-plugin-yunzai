@@ -1,7 +1,7 @@
 {
   "name": "koishi-plugin-yunzai",
   "description": "a yunzai-plugin adapter for koishi",
-  "version": "0.0.1-placeholder",
+  "version": "0.0.3-placeholder",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "files": [
@@ -13,13 +13,16 @@
   "koishi": {
     "description": {
       "zh": "(开发中)YunzaiBot for koishi"
-    }
+    },
+    "market": "hidden",
+    "preview": true
   },
-  "preview": true,
   "keywords": [
     "chatbot",
     "koishi",
-    "plugin"
+    "plugin",
+    "market:hidden",
+    "yunzai-bot"
   ],
   "peerDependencies": {
     "koishi": "^4.11.1"
