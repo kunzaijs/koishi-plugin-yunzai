@@ -6,7 +6,9 @@ Kunzai 是几位小黑子发现 Koishi + Yunzai 可以组合成 Kunzai！于是�
 
 ## 特点
 
-- **Koishi 原生能力**：
+- **多平台**：借助 Koishi 自身强大的适配器平台能力，让 YunzaiBot 轻松支持更多的平台！
+- **更易用**：告别命令行，告别编辑文件。全流程 UI 操作，一键安装、在线配置。
+- **原生 TypeScript 实现**：使用 TypeScript 强大的类型系统支持 YunzaiBot 的运行时模拟，让插件更加健壮。
 
 ## 插件
 
