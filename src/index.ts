@@ -1,11 +1,14 @@
 import { Context, Schema } from 'koishi'
 
-export const name = 'kunzai'
+class Kunzai {
+  readonly name = 'kunzai'
+  constructor(private ctx: Context, config: Kunzai.Config) {
 
-export interface Config {}
+  }
+}
 
-export const Config: Schema<Config> = Schema.object({})
+namespace Kunzai {
+  export interface Config { }
 
-export function apply(ctx: Context) {
-  // write your plugin here
+  export const Config: Schema<Config> = Schema.object({})
 }
