@@ -2,6 +2,13 @@
   "name": "koishi-plugin-yunzai",
   "description": "a yunzai-plugin adapter for koishi",
   "version": "0.0.3-placeholder",
+  "repository": "https://github.com/kunzaijs/koishi-plugin-yunzai",
+  "author": "KunzaiBot.js",
+  "contributors": [
+    "Lipraty <i@lonay.me>",
+    "xieyi1393 <2387911242@qq.com>",
+    "KunzaiBot.js"
+  ],
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "files": [
