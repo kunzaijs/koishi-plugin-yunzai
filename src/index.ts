@@ -1,14 +1,31 @@
-import { Context, Schema } from 'koishi'
+import { Context, Schema, Service } from 'koishi'
 
-class Yunzai {
-  readonly name = 'kunzai'
-  constructor(private ctx: Context, config: Yunzai.Config) {
+declare module 'koishi' {
+  interface Context {
+    yunzai: Yunzai
+  }
+}
 
+class Yunzai extends Service {
+  usage = Yunzai.usage
+  constructor(ctx: Context, private config: Yunzai.Config) {
+    super(ctx, 'yunzai', true)
   }
 }
 
 namespace Yunzai {
-  export interface Config { }
+  export const usage = `
+### 插件说明
 
-  export const Config: Schema<Config> = Schema.object({})
+该插件是 Yunzai 插件兼容加载器，请前往插件市场搜索 \`kunzai\` 来获取 yunzai 插件。 
+`
+  export interface Config {
+    storeCompatible: string
+   }
+
+  export const Config: Schema<Config> = Schema.object({
+    storeCompatible: Schema.union(['kvdata', 'redis']).default('kvdata').description('数据存储方式')
+  })
 }
+
+export default Yunzai
