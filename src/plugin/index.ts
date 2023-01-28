@@ -24,32 +24,26 @@ export interface PluginOptTask {
 
 export class YunzaiPlugin {
     constructor(option: YunzaiPluginOptions) {
-        this.name = option.name
-        this.dsc = option.desc
-        /** 插件名称 */
-        this.name = data.name
-        /** 插件描述 */
-        this.dsc = data.dsc
         /** 监听事件，默认message https://oicqjs.github.io/oicq/#events */
-        this.event = data.event || 'message'
+        this.event = option.event || 'message'
         /** 优先级 */
-        this.priority = data.priority || 5000
+        this.priority = option.priority || 5000
         /** 定时任务，可以是数组 */
         this.task = {
             /** 任务名 */
             name: '',
             /** 任务方法名 */
-            fnc: data.task?.fnc || '',
+            fnc: option.task?.fnc || '',
             /** 任务cron表达式 */
-            cron: data.task?.cron || ''
+            cron: option.task?.cron || ''
         }
 
         /** 命令规则 */
-        this.rule = data.rule || []
+        this.rule = option.rule || []
     }
     reply(content: string, quote?: boolean, data?: { recallMsg?: number, at?: boolean }) {
-        if (!this.e.reply || !msg) return false
-        return this.e.reply(msg, quote, data)
+        if (!this.e.reply || !content) return false
+        return this.e.reply(content, quote, data)
     }
     conKey(channel?: boolean) {
         if (channel) {
