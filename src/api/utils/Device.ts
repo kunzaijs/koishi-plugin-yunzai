@@ -1,10 +1,10 @@
-/**
- * 用于header的device实现，这不是一个完整的device
- * 参考自Mirai、MIraiGo、OICQ项目实现
- */
-
 import { createHash } from "crypto"
 
+/**
+ * 用于header的device实现，这不是一个完整的device
+ * 
+ * 参考自Mirai、MIraiGo、OICQ项目实现
+ */
 export class DeviceInfo {
     constructor(private uid: string, private dsalt?: string) { }
 
