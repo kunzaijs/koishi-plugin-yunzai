@@ -1,7 +1,7 @@
 {
   "name": "koishi-plugin-yunzai",
   "description": "a yunzai adapter for koishi",
-  "version": "0.0.0-preview.0",
+  "version": "0.0.0-preview.1",
   "repository": "https://github.com/kunzaijs/koishi-plugin-yunzai",
   "author": "KunzaiBot.js",
   "contributors": [
@@ -19,10 +19,12 @@
   "scripts": {},
   "koishi": {
     "description": {
-      "zh": "(开发中)YunzaiBot for koishi"
+      "zh": "🪄 (开发中) Koishi 的云崽插件兼容层",
+      "en": "🪄 (Developing)YunzaiBot adapter for koishi"
     },
     "service": {
-      "required": [
+      "optional":[
+        "cache",
         "database"
       ],
       "implements": [
@@ -38,9 +40,17 @@
     "koishi",
     "plugin",
     "market:hidden",
-    "yunzai-bot"
+    "yunzai-bot",
+    "yunzai",
+    "云崽"
   ],
   "peerDependencies": {
-    "koishi": "^4.11.1"
+    "koishi": "^4.11.1",
+    "@koishijs/cache": "^0.1.3"
+  },
+  "peerDependenciesMeta": {
+    "@koishijs/cache": {
+      "optional": true
+    }
   }
 }
