@@ -1,16 +1,17 @@
-import { RegionType } from "./utils/Region"
+import { APIParameTyper, APIRegion, APIStencil, ActID } from "./interface/basicAPI.interface"
+import { GetRegion, RegionType } from "./utils/Region"
 
 export namespace BBSApi {
     /**
      * hostBy所指API地址
      */
     export const region: APIRegion = {
-        china: {
+        cn: {
             takumi: 'https://api-takumi.mihoyo.com',
             hk4e: 'https://hk4e-api.mihoyo.com',
             record: 'https://api-takumi-record.mihoyo.com',
         },
-        overseas: {
+        os: {
             takumi: 'https://api-os-takumi.mihoyo.com',
             hk4e: 'https://hk4e-api-os.hoyoverse.com',
             record: 'https://bbs-api-os.hoyolab.com',
@@ -20,9 +21,9 @@ export namespace BBSApi {
     /**
      * act_id
      */
-    export const actId = {
-        china: 'e202009291139501',
-        overseas: 'e202102251931481'
+    export const actId: ActID = {
+        cn: 'e202009291139501',
+        os: 'e202102251931481'
     } as const
 
     /**
@@ -30,102 +31,102 @@ export namespace BBSApi {
      */
     export const stencil: APIStencil = {
         bbsSign: {
-            availableFor: ['china', 'overseas'],
+            availableFor: ['cn', 'os'],
             hostBy: {
-                china: 'takumi',
-                overseas: 'hk4e'
+                cn: 'takumi',
+                os: 'hk4e'
             },
             method: 'POST',
             url: {
-                china: '/event/bbs_sign_reward/sign',
-                overseas: '/event/sol/sign'
+                cn: '/event/bbs_sign_reward/sign',
+                os: '/event/sol/sign'
             },
-            parameters: [['act_id', 'string'], ['region', 'string'], ['uid', 'string']],
+            parameters: [['act_id', String], ['region', String], ['uid', String]],
             cookie: true
         },
         bbsSignHome: {
-            availableFor: ['china', 'overseas'],
+            availableFor: ['cn', 'os'],
             hostBy: {
-                china: 'takumi',
-                overseas: 'hk4e'
+                cn: 'takumi',
+                os: 'hk4e'
             },
             method: 'GET',
             url: {
-                china: '/event/bbs_sign_reward/home',
-                overseas: '/event/sol/home'
+                cn: '/event/bbs_sign_reward/home',
+                os: '/event/sol/home'
             },
-            parameters: [['act_id', 'string'], ['region', 'string'], ['uid', 'string']],
+            parameters: [['act_id', String], ['region', String], ['uid', String]],
             cookie: true
         },
         bbsSignInfo: {
-            availableFor: ['china', 'overseas'],
+            availableFor: ['cn', 'os'],
             hostBy: {
-                china: 'takumi',
-                overseas: 'hk4e'
+                cn: 'takumi',
+                os: 'hk4e'
             },
             method: 'GET',
             url: {
-                china: '/event/bbs_sign_reward/home',
-                overseas: '/event/sol/info'
+                cn: '/event/bbs_sign_reward/home',
+                os: '/event/sol/info'
             },
-            parameters: [['act_id', 'string'], ['region', 'string'], ['uid', 'string']],
+            parameters: [['act_id', String], ['region', String], ['uid', String]],
             cookie: true
         },
         dailyNote: {
-            availableFor: ['china', 'overseas'],
+            availableFor: ['cn', 'os'],
             hostBy: 'record',
             method: 'GET',
             url: '/game_record/app/genshin/api/dailyNote',
-            parameters: [['role_id', 'string'], ['server', 'string']],
+            parameters: [['role_id', String], ['server', String]],
             cookie: true
         },
         abyss: {
-            availableFor: ['china', 'overseas'],
+            availableFor: ['cn', 'os'],
             hostBy: 'record',
             method: 'GET',
             url: '/game_record/app/genshin/api/spiralAbyss',
-            parameters: [['role_id', 'string'], ['schedule_type', 'number'], ['server', 'string']],
+            parameters: [['role_id', String], ['schedule_type', Number], ['server', String]],
             cookie: true
         },
         character: {
-            availableFor: ['china'],
+            availableFor: ['cn'],
             hostBy: 'record',
             method: 'POST',
             url: '/game_record/app/genshin/api/character',
-            parameters: [['role_id', 'string'], ['server', 'string']],
+            parameters: [['role_id', String], ['server', String]],
             cookie: true
         },
         detail: {
-            availableFor: ['china', 'overseas'],
+            availableFor: ['cn', 'os'],
             hostBy: {
-                china: 'takumi',
-                overseas: undefined
+                cn: 'takumi',
+                os: undefined
             },
             method: 'GET',
             url: {
-                china: '/event/e20200928calculate/v1/sync/avatar/detail',
-                overseas: 'https://sg-public-api.hoyolab.com/event/calculateos/sync/avatar/detail'
+                cn: '/event/e20200928calculate/v1/sync/avatar/detail',
+                os: 'https://sg-public-api.hoyolab.com/event/calculateos/sync/avatar/detail'
             },
-            parameters: [['lang', 'string', true], ['uid', 'string'], ['region', 'string'], ['avatar_id', 'string']],
+            parameters: [['lang', String, true], ['uid', String], ['region', String], ['avatar_id', String]],
             cookie: true
         },
         memo: {
-            availableFor: ['china', 'overseas'],
+            availableFor: ['cn', 'os'],
             hostBy: 'hk4e',
             method: 'GET',
             url: {
-                china: '/event/ys_ledger/monthInfo',
-                overseas: '/event/ysledgeros/month_info'
+                cn: '/event/ys_ledger/monthInfo',
+                os: '/event/ysledgeros/month_info'
             },
-            parameters: [['month', 'number'], ['bind_uid', 'string'], ['bind_region', 'string']],
+            parameters: [['month', Number], ['bind_uid', String], ['bind_region', String]],
             cookie: true
         },
         genCard: {
-            availableFor: ['china'],
+            availableFor: ['cn'],
             hostBy: 'record',
             method: 'GET',
             url: '/game_record/app/genshin/api/character',
-            parameters: [['role_id', 'string'], ['server', 'string']],
+            parameters: [['role_id', String], ['server', String]],
             cookie: true
         },
     } as const
@@ -133,23 +134,18 @@ export namespace BBSApi {
     type ApiList = keyof typeof stencil
     type AvailableRegions = keyof typeof region
     type AvailableUnion<K extends ApiList> = typeof stencil[K]['availableFor'][number]
-    type TakeType<N extends string> = N extends 'string' ? string : N extends 'number' ? number : N extends 'boolean' ? boolean : N extends 'object' ? object : unknown;
 
-    export type RegionTypeOf<R extends RegionType> = R extends RegionType.CN | RegionType.CNB ? 'china' : 'overseas'
     export type For<R extends AvailableRegions> = {
         [K in ApiList as R extends AvailableUnion<K> ? K : never]: typeof stencil[K]
     }
     /**
      * 获取该地区支持的API
      */
-    export type Keys<R extends RegionType> = keyof For<RegionTypeOf<R>>
+    export type Keys<R extends RegionType> = keyof For<GetRegion<R>>
     /**
      * 获取API请求参数条件
-     * > 这个正常来说是可以推导的，编译回js时也能正常工作，但是由于约束不完全而被ts骂了。
-
      */
     export type Params<R extends RegionType, A extends Keys<R>> = {
-        //@ts-ignore
-        [K in For<RegionTypeOf<R>>[A]['parameters'][number][0]]: TakeType<For<RegionTypeOf<R>>[A]['parameters'][number][1]>
+        [K in For<GetRegion<R>>[A]['parameters'][number][0]]: ReturnType<For<GetRegion<R>>[A]['parameters'][number][1]>
     }
 }

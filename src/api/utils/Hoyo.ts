@@ -2,7 +2,7 @@ import { Logger } from "koishi"
 import { createHash, randomUUID } from "node:crypto"
 import { DeviceInfo } from "./Device"
 import { Random } from "./Random"
-import { RegionType, getRegion } from "./Region"
+import { Region, RegionType, getRegionType } from "./Region"
 
 const logger = new Logger('hoyokit')
 
@@ -18,7 +18,7 @@ type HoyoConfig = {
     salt: string
 }
 
-const config: Record<'cn' | 'os', HoyoConfig> = {
+const config: Record<Region, HoyoConfig> = {
     cn: {
         actID: 'e202009291139501',
         clientType: 2, //1：iOS, 2: Android
@@ -36,12 +36,12 @@ const config: Record<'cn' | 'os', HoyoConfig> = {
 }
 
 export class Hoyo {
-    private region: 'cn' | 'os'
+    private region: Region
     private device: DeviceInformation
     private conf: HoyoConfig
 
-    constructor(uid: string) {
-        let serverType = getRegion(uid)
+    constructor(uid: `${number}`) {
+        let serverType = getRegionType(uid)
         if (serverType === RegionType.CN || serverType === RegionType.CNB) {
             this.region = 'cn'
             this.conf = config.cn
