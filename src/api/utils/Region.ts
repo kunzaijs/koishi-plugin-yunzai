@@ -7,32 +7,19 @@ export enum RegionType {
     US = 'os_usa'
 }
 
-export const getRegion = (uid: string): RegionType => {
-    const UT = parseInt(uid[0])
-    switch (UT) {
-        case 1:
-            return RegionType.CN
-        case 2:
-            return RegionType.CN
-        case 5:
-            return RegionType.CNB
-        case 6:
-            return RegionType.US
-        case 7:
-            return RegionType.EU
-        case 8:
-            return RegionType.AS
-        case 9:
-            return RegionType.CHT
-    }
-}
+export type Region = 'cn' | 'os'
 
-export type RegionTyper = RegionType.CN | RegionType.CNB | RegionType.US | RegionType.EU | RegionType.AS | RegionType.CHT
+export type GetRegion<
+    U extends `${number}` | RegionType
+> =
+    U extends `${number}`
+    ? GetRegionType<U> extends RegionType.CN | RegionType.CNB ? 'cn' : 'os'
+    : U extends RegionType.CN | RegionType.CNB ? 'cn' : 'os'
 
-export type Region<
+export type GetRegionType<
     U extends `${number}`
 > =
-    U extends `${infer C}${infer R}`
+    U extends `${infer C}${infer O}`
     ? C extends '1' | '2'
     ? RegionType.CN
     : C extends '5'
@@ -47,3 +34,15 @@ export type Region<
     ? RegionType.CHT
     : never
     : never
+
+const RegionTypeMap = {
+    1: RegionType.CN,
+    2: RegionType.CN,
+    5: RegionType.CNB,
+    6: RegionType.US,
+    7: RegionType.EU,
+    8: RegionType.AS,
+    9: RegionType.CHT
+} as const
+
+export const getRegionType = (uid: `${number}`): RegionType => RegionTypeMap[+uid[0]]
