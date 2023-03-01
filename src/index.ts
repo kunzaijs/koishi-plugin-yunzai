@@ -1,19 +1,9 @@
 import { Context, Schema, Service } from 'koishi'
-import { } from '@koishijs/cache'
-import { GenshinAPI } from './api'
 
-declare module 'koishi' {
-  interface Context {
-    yunzai: Yunzai
-    genshin: GenshinAPI
-  }
-}
-
-class Yunzai extends Service {
+class Yunzai {
   readonly usage = Yunzai.usage
 
   constructor(ctx: Context, private config: Yunzai.Config) {
-    super(ctx, 'yunzai', true)
 
   }
 }
@@ -22,7 +12,9 @@ namespace Yunzai {
   export const usage = `
 ### 插件说明
 
-该插件是 Yunzai 插件兼容层，请前往插件市场搜索 \`kunzai\` 来获取 yunzai 插件。 
+这是一个提供了 YunzaiBot （或者说 oicq 兼容层）事件兼容的基础插件。 
+
+> 兼容层插件及基于兼容层的插件正在开发中，敬请期待。
 `
   export interface Config { }
 
